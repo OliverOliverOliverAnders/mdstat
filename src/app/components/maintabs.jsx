@@ -7,16 +7,22 @@ import MoreVertIcon from 'material-ui/lib/svg-icons/navigation/more-vert';
 import MenuItem from 'material-ui/lib/menus/menu-item';
 import Tabs from 'material-ui/lib/tabs/tabs';
 import Tab from 'material-ui/lib/tabs/tab';
+import Divider from 'material-ui/lib/divider';
+import Paper from 'material-ui/lib/paper'
 import styles from '../style.js'
 import MDStatEventList from './mdstat_eventlist'
-
+import MDStatEventView from './mdstat_eventview'
 
 let MainTabs = React.createClass({
     render: function(){
           return <Tabs>
     <Tab label="Event List" >
       <div>
-      <MDStatEventList />
+      <MDStatEventList eventList={this.props.state.eventList_eventList} columns={this.props.state.eventList_columns}
+        event={this.props.state.eventList_selectedEvent} />
+
+      <MDStatEventView event={this.props.state.eventList_selectedEvent} />
+
       </div>
     </Tab>
     <Tab label="Item Two" >

@@ -7,6 +7,12 @@ let freezer = new Freezer({
   count:1,
   name:"My Name is Name",
   dbName:"initial",
+	eventList_selectedEvent:{id:'1',text:"none",info:'lksjkj'},
+	eventList_eventList:[{ id: '1', firstName: 'John', lastName: 'Bobson'},
+  { id: '2', firstName: 'Bob', lastName: 'Mclaren'}],
+	eventList_columns:[{ name: 'firstName'},
+  { name: 'lastName'}],
+
 });
 
 exports['default'] = freezer;
