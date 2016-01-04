@@ -8,8 +8,8 @@ let freezer = new Freezer({
   name:"My Name is Name",
   dbName:"initial",
 	eventList_selectedEvent:{id:'1',text:"none",info:'lksjkj'},
-	eventList_eventList:[{ id: '1', firstName: 'John', lastName: 'Bobson'},
-  { id: '2', firstName: 'Bob', lastName: 'Mclaren'}],
+	eventList_eventList:[{ id: '1', firstName: 'John', lastName: 'Bobson',approved: true},
+  { id: '2', firstName: 'Bob', lastName: 'Mclaren',approved: true}],
 	eventList_columns:[{ name: 'firstName'},
   { name: 'lastName'}],
 

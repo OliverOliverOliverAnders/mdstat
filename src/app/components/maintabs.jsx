@@ -9,7 +9,7 @@ import Tabs from 'material-ui/lib/tabs/tabs';
 import Tab from 'material-ui/lib/tabs/tab';
 import Divider from 'material-ui/lib/divider';
 import Paper from 'material-ui/lib/paper'
-import styles from '../style.js'
+import headlineStyle from '../style'
 import MDStatEventList from './mdstat_eventlist'
 import MDStatEventView from './mdstat_eventview'
 
@@ -22,12 +22,12 @@ let MainTabs = React.createClass({
         event={this.props.state.eventList_selectedEvent} />
 
       <MDStatEventView event={this.props.state.eventList_selectedEvent} />
-
+ 
       </div>
     </Tab>
     <Tab label="Item Two" >
       <div>
-        <h2 style={styles.headline}>Tab Two Template Example</h2>
+        <h2 style={headlineStyle}>Tab Two Template Example</h2>
         <p>
           This is another example of a tab template!
         </p>
