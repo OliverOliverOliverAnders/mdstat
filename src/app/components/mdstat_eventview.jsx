@@ -2,12 +2,34 @@ import React from 'react';
 import Paper from  'material-ui/lib/paper';
 import Divider from 'material-ui/lib/divider';
 import Checkbox from 'material-ui/lib/checkbox';
+
+
 import {headlineStyle} from '../style';
+import List from 'material-ui/lib/lists/list';
+import ListItem from 'material-ui/lib/lists/list-item';
 
 
 let MDStatEventView = React.createClass({
+  getInitialState:function(){
+    return {approved:this.props.event.approved};
+  },
+
+     createInfoList: function(info){
+
+       return info.map(
+         function(entry)
+         {
+           return <ListItem primaryText={entry}/>;
+         }
+       );
+    },
+
+
      render: function(){
+
+    let infoList=this.createInfoList(this.props.event.info);
           /* get Data from props */
+          alert(this.props.event.approved);
      return <Paper id="blbl" style={headlineStyle} zDepth={1}>
 
         <div className="row">
@@ -15,11 +37,14 @@ let MDStatEventView = React.createClass({
           <div className="col-1-2">
             <Checkbox
              name="approved"
-             value={this.props.event.approved}
+             value={this.state.approved}
+             defaultChecked={this.state.approved}
              label="approved"/>
          </div>
        </div>
-        {this.props.event.info}
+       <List>
+         {infoList}
+       </List>
 
 
          </Paper>;
