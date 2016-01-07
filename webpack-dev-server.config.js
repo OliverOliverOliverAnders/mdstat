@@ -41,6 +41,9 @@ var config = {
     ], path.resolve(__dirname, "src"))
   ],
   module: {
+
+    noParse: /node_modules\/json-schema\/lib\/validate\.js/
+,
     //Loaders to interpret non-vanilla javascript code as well as most other extensions including images and text.
     preLoaders: [
       {
@@ -61,6 +64,7 @@ var config = {
       { test: /\.css$/, loader: "css-loader" },
       { test: /\.png$/, loader: "url-loader?limit=100000" },
       { test: /\.jpg$/, loader: "file-loader" },
+      { test: /\.json$/, loader: "json-loader" },
     ]
   },
   //eslint config options. Part of the eslint-loader package

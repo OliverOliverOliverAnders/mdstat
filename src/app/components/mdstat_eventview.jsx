@@ -29,9 +29,7 @@ let MDStatEventView = React.createClass({
 
     let infoList=this.createInfoList(this.props.event.info);
           /* get Data from props */
-          alert(this.props.event.approved);
      return <Paper id="blbl" style={headlineStyle} zDepth={1}>
-
         <div className="row">
           <div className="col-1-2">ID: {this.props.event.id}</div>
           <div className="col-1-2">
