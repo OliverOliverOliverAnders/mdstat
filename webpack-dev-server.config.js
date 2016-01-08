@@ -41,6 +41,7 @@ var config = {
     ], path.resolve(__dirname, "src"))
   ],
   module: {
+    
 
     noParse: /node_modules\/json-schema\/lib\/validate\.js/
 ,

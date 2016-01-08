@@ -34,11 +34,11 @@ let MDStatEventList = React.createClass({
            columns={this.props.columns} />;
          },
      onSelectionChange: function(newSelectedId,data){
+       /* get ID */
+       let key=Object.keys(newSelectedId)[0]
+       alert("selected id "+key);
+       Store.trigger('selectEvent',key);
 
-       alert("selected id");
-       alert(newSelectedId)
-       Store.trigger('selectEvent',newSelectedId);
-       alert("selected id"+newSelectedId);
      },
      });
 export default MDStatEventList;

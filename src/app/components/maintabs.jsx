@@ -15,6 +15,7 @@ import MDStatEventView from './mdstat_eventview'
 
 let MainTabs = React.createClass({
     render: function(){
+      alert("render tabs");
           return <Tabs>
     <Tab label="Event List" >
       <div>
@@ -22,7 +23,7 @@ let MainTabs = React.createClass({
         event={this.props.state.eventList_selectedEvent} />
 
       <MDStatEventView event={this.props.state.eventList_selectedEvent} />
- 
+
       </div>
     </Tab>
     <Tab label="Item Two" >
