@@ -23,7 +23,9 @@ let MDStatEventView = React.createClass({
          }
        );
     },
-
+handleCheckApprove:function(event,checked){
+  alert(event);
+},
 
      render: function(){
 
@@ -37,8 +39,10 @@ let MDStatEventView = React.createClass({
             <Checkbox
              name="approved"
              checked={this.props.event.approved}
-             label="approved"/>
+             label="approved"
+             onCheck={this.handleCheckApprove}/>
          </div>
+
        </div>
        <List>
          {infoList}
