@@ -10,6 +10,15 @@ Store.on('increase',function(){
   s.set({count:s.count+1});
 });
 
+
+Store.on('toggleApproved',function(event,checked){
+  let s=Store.get();
+  let eventDB=couch.db.use('test');
+  newEvent=s.get('eventList_selectedEvent')
+  newEvent.approved=checked;
+  s.set('eventList_selectedEvent',newEvent);
+});
+
 Store.on('selectEvent',function(id){
   let eventDB=couch.db.use('test');
   eventDB.get(id,{revs_info:true},function(err,body){
@@ -18,8 +27,4 @@ Store.on('selectEvent',function(id){
   });
 
 
-})
-Store.on('setApproveForEvent',function(id,approve){
-  let s=Store.get();
-  s.set('selectedEvent',{id:id,text:"blabla",info:["eins","zwei"]})
-})
+});

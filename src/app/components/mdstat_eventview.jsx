@@ -8,6 +8,7 @@ import {headlineStyle} from '../style';
 import List from 'material-ui/lib/lists/list';
 import ListItem from 'material-ui/lib/lists/list-item';
 
+let Store=require('../store.js');
 
 let MDStatEventView = React.createClass({
   getInitialState:function(){
@@ -24,7 +25,9 @@ let MDStatEventView = React.createClass({
        );
     },
 handleCheckApprove:function(event,checked){
-  alert(event);
+  Store.trigger("toggleApproved",this.props.event,checked)
+
+
 },
 
      render: function(){
