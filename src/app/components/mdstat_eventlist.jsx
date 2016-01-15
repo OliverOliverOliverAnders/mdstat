@@ -1,44 +1,36 @@
 import React from 'react';
-import AppBar from 'material-ui/lib/app-bar';
-import IconButton from 'material-ui/lib/icon-button';
-import NavigationClose from 'material-ui/lib/svg-icons/navigation/close';
-import IconMenu from 'material-ui/lib/menus/icon-menu';
-import MoreVertIcon from 'material-ui/lib/svg-icons/navigation/more-vert';
-import MenuItem from 'material-ui/lib/menus/menu-item';
-
-let Store=require('../store.js');
-
 let DataGrid = require('react-datagrid')
-
-let data = [
- { id: '1', firstName: 'John', lastName: 'Bobson'},
- { id: '2', firstName: 'Bob', lastName: 'Mclaren'},
-]
-let columns = [
- { name: 'firstName'},
- { name: 'lastName'},
-]
-
-
 
 
 let MDStatEventList = React.createClass({
 
-     render: function(){
-          /* get Data from props */
+  getDefaultProps: function() {
+    return {
+      handleSelectEvent: this.handleSelectEventDefault,
+    };
+  },
 
-         return <DataGrid idProperty="id"
-           dataSource={this.props.eventList}
-           onSelectionChange={this.onSelectionChange}
-           selected={this.props.event}
-           columns={this.props.columns} />;
-         },
-     onSelectionChange: function(newSelectedId,data){
-       /* get ID */
-       let key=Object.keys(newSelectedId)[0]
-       alert("selected id "+key);
-       Store.trigger('selectEvent',key);
+  propTypes:{
+    handleSelectEvent:React.PropTypes.func.isRequired,
+  },
 
-     },
-     });
+  handleSelectEventDefault:function(eventId){/*dummy*/},
+
+  onSelectionChange: function(newSelectedId,data){
+    /* get ID */
+    let key=Object.keys(newSelectedId)[0]
+    this.props.handleSelectEvent(key);
+  },
+
+  render: function(){
+    /* get Data from props */
+
+    return <DataGrid idProperty="id"
+      dataSource={this.props.eventList}
+      onSelectionChange={this.onSelectionChange}
+      selected={this.props.event}
+      columns={this.props.columns} />;
+  },
+
+});
 export default MDStatEventList;

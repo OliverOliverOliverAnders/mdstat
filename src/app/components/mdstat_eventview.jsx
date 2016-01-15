@@ -14,9 +14,16 @@ import ErrorIcon from 'material-ui/lib/svg-icons/alert/error';
 import WarnIcon from 'material-ui/lib/svg-icons/alert/warning';
 import colors from 'material-ui/lib/styles/colors';
 
-let Store=require('../store.js');
-
 let MDStatEventView = React.createClass({
+
+  propTypes:{
+    handleCheckApprove:React.PropTypes.func.isRequired,
+  },
+
+  listStyle:{
+    overflowY:'auto',
+    height:'400px',
+  },
   getInitialState:function(){
     return {filterForErrors:false};
   },
@@ -45,11 +52,7 @@ let MDStatEventView = React.createClass({
       }
     );
   },
-  handleCheckApprove:function(event,checked){
-    Store.trigger("toggleApproved",this.props.event,checked)
 
-
-  },
   handleCheckFilterForErrors:function(event,checked){
     this.setState({filterForErrors:checked});
   },
@@ -67,10 +70,10 @@ let MDStatEventView = React.createClass({
             name="approved"
             checked={this.props.event.approved}
             label="approved"
-            onCheck={this.handleCheckApprove}/>
+            onCheck={this.props.handleCheckApprove}/>
         </div>
         <div className="col-1-4">
-          {this.getStatusIcon()} {this.props.event.status}
+          Status: {this.getStatusIcon()} {this.props.event.status}
         </div>
         <div className="col-1-4">
           <Checkbox
@@ -80,10 +83,10 @@ let MDStatEventView = React.createClass({
             onCheck={this.handleCheckFilterForErrors}
             />
         </div>
-        
+
 
       </div>
-      <List>
+      <List style={this.listStyle}>
         {infoList}
       </List>
 
